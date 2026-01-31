@@ -4,7 +4,7 @@
 
 Cursor IDE gRPC 中间人流量分析工具。可以解密 TLS、反序列化 protobuf、实时展示 AI 对话产生的RPC请求和响应。
 
-![image-20260131181319486](images\image-20260131180724715.png)
+![image-20260131181319486](images/image-20260131180724715.png)
 
 ## 为什么做这个
 

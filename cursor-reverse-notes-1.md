@@ -27,6 +27,8 @@ date: 2026-01-31 00:00:00
 
 本文记录整个折腾过程。最终目标是在不中断 Cursor 正常使用的前提下，完整解密 TLS 流量，从压缩打包好的js文件还原protobuf结构，识别并解析 gRPC 和 Connect Protocol 通信，最后做一个 WebUI 用来检索和回放流量。
 
+* 本文章中的涉及到的全部代码都已经在github上公开 https://github.com/burpheart/cursor-tap
+
 # 从 Burp 开始，然后被 CA 打脸
 
 最开始的想法很简单。BurpSuite 或者 Yakit 这种开箱即用的 HTTPS 代理，开起来把系统代理指过去就完事了。几百年前就有的成熟方案，没什么技术含量。
@@ -194,9 +196,9 @@ func (k *KeyLog) Write(p []byte) (int, error) {
 
 keylog 文件路径是 `<data-dir>/sslkeys.log`。在 Wireshark 里设置 `Edit → Preferences → Protocols → TLS → (Pre)-Master-Secret log filename` 指向这个文件，就能解密抓到的 TLS 流量。
 
-![image-20260131180724713](images\image-20260131180724713.png)
+![image-20260131180724713](images/image-20260131180724713.png)
 
-![image-20260131180724714](images\image-20260131180724714.png)
+![image-20260131180724714](images/image-20260131180724714.png)
 
 ## 最终的代码结构
 
@@ -752,7 +754,7 @@ WebUI 用 WebSocket 做实时推送。代理每解析出一帧就立刻推给前
 
 记录格式里专门为 gRPC 留了字段：`grpc_service`、`grpc_method`、`grpc_streaming`、`grpc_frame_index`、`grpc_data` 存 protojson 的 JSON，失败时保留 `grpc_raw` 的 base64 用于 debug。
 
-![image-20260131181319486](images\image-20260131180724715.png)
+![image-20260131181319486](images/image-20260131180724715.png)
 
 # 流量分析
 
